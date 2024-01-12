@@ -5,10 +5,10 @@ import ElementPlus from "element-plus";
 import { getServerConfig } from "./config";
 import { createApp, Directive } from "vue";
 import { MotionPlugin } from "@vueuse/motion";
-// import { useEcharts } from "@/plugins/echarts";
+import { useEcharts } from "@/plugins/echarts";
 import { injectResponsiveStorage } from "@/utils/responsive";
 
-// import Table from "@pureadmin/table";
+import Table from "@pureadmin/table";
 // import PureDescriptions from "@pureadmin/descriptions";
 
 // 引入重置样式
@@ -49,9 +49,8 @@ getServerConfig(app).then(async config => {
   await router.isReady();
   injectResponsiveStorage(app, config);
   setupStore(app);
-  app.use(MotionPlugin).use(ElementPlus);
-  // .use(useEcharts);
-  // .use(Table);
+  app.use(MotionPlugin).use(ElementPlus).use(Table).use(useEcharts);
+
   // .use(PureDescriptions);
   app.mount("#app");
 });

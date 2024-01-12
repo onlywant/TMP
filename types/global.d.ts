@@ -42,6 +42,11 @@ declare global {
   }
 
   /**
+   *  继承 `@pureadmin/table` 的 `TableColumns` ，方便全局直接调用
+   */
+  interface TableColumnList extends Array<TableColumns> {}
+
+  /**
    * 打包压缩格式的类型声明
    */
   type ViteCompression =
